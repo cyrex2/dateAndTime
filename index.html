@@ -49,10 +49,9 @@ function updateTime(){
 				var date = today.getDate();
 		
 		
-		// blink the colon and make it so it doesn't move a little
-		var sepClass = '';
-		if (today.getSeconds() % 2 === 1) sepClass = 'trans';
-		var sep = '<span class="' + sepClass + '">:</span>';
+		// blinking colon
+		var sep = ':';
+		if (d.getSeconds() % 2 === 1) sep = ' ';
 	
 	if (hours > 12) {
 		hours -= 12,
