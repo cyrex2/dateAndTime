@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+#time {
+  font-family: arial;
+  font-size: 35px;
+  letter-spacing: 3px;
+  text-align: center;
+  color: lightseagreen;
+   text-shadow: -1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey;
+  border: black solid .5px;
+  border-radius: 10px;
+}
+</style>
+</head>
+<body>
+<div>
+  <p id="time"></p>
+  </div>
+<script id="jsbin-javascript">
+(function(){
+'use strict';
+
+document.addEventListener('DOMContentLoaded', function() {
+
+// connected to <p id="time"> in html
+
+var c = document.getElementById('time');
+
+// updates every second
+
+setInterval(updateTime, 1000);
+
+function updateTime(){
+	var today = new Date();
+	var hours = today.getHours(),	
+	ampm = 'AM';
+	
+	var day = today.getDay();
+	var daylist = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+			
+			var month = today.getMonth();
+			var monthlist = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+			
+				var date = today.getDate();
+		
+		
+		// blink the colon and make it so it doesn't move a little
+		var sepClass = '';
+		if (today.getSeconds() % 2 === 1) sepClass = 'trans';
+		var sep = '<span class="' + sepClass + '">:</span>';
+	
+	if (hours > 12) {
+		hours -= 12,
+		ampm = 'PM';
+	} else if ( hours === 0) {
+		hours = 12;
+	}
+	
+	// put a 0 before single digit minutes
+		var min = today.getMinutes();
+		if (min < 10) {
+		min = "0" + today.getMinutes();
+		}
+	
+	c.innerHTML = daylist[day] + '<br>  ' + monthlist[month] + '  ' + date + '<br> ' + hours + sep + min + ' ' + ampm;
+	
+	}
+	
+	});
+
+})();
+</script>
+
+
+<script id="jsbin-source-css" type="text/css">#time {
+  font-family: arial;
+  font-size: 35px;
+  letter-spacing: 3px;
+  text-align: center;
+  color: lightseagreen;
+   text-shadow: -1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey;
+  border: black solid .5px;
+  border-radius: 10px;
+}</script>
+
+<script id="jsbin-source-javascript" type="text/javascript">(function(){
+'use strict';
+
+document.addEventListener('DOMContentLoaded', function() {
+
+// connected to <p id="time"> in html
+
+var c = document.getElementById('time');
+
+// updates every second
+
+setInterval(updateTime, 1000);
+
+function updateTime(){
+	var today = new Date();
+	var hours = today.getHours(),	
+	ampm = 'AM';
+	
+	var day = today.getDay();
+	var daylist = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+			
+			var month = today.getMonth();
+			var monthlist = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+			
+				var date = today.getDate();
+		
+		
+		// blink the colon and make it so it doesn't move a little
+		var sepClass = '';
+		if (today.getSeconds() % 2 === 1) sepClass = 'trans';
+		var sep = '<span class="' + sepClass + '">:</span>';
+	
+	if (hours > 12) {
+		hours -= 12,
+		ampm = 'PM';
+	} else if ( hours === 0) {
+		hours = 12;
+	}
+	
+	// put a 0 before single digit minutes
+		var min = today.getMinutes();
+		if (min < 10) {
+		min = "0" + today.getMinutes();
+		}
+	
+	c.innerHTML = daylist[day] + '<br>  ' + monthlist[month] + '  ' + date + '<br> ' + hours + sep + min + ' ' + ampm;
+	
+	}
+	
+	});
+
+})();</script></body>
+</html>
